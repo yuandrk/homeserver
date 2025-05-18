@@ -1,0 +1,13 @@
+version: '3.8'
+
+# Example override file for development environment
+services:
+  prometheus:
+    ports:
+      - "9090:9090"  # Expose Prometheus UI for development
+
+  loki:
+    ports:
+      - "3100:3100"  # Expose Loki API for development
+
+  # Add overrides for other services as needed

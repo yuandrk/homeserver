@@ -1,0 +1,15 @@
+# Local environment file with secrets
+.env
+
+# Local data
+*/data
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

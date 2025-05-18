@@ -1,0 +1,9 @@
+{
+    # Global options
+    admin off
+}
+
+# Only expose Grafana publicly
+grafana.localhost {
+    reverse_proxy grafana:3000
+}
