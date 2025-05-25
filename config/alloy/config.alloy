@@ -33,9 +33,7 @@ log.scrape "docker_containers" {
   forward_to = [loki.write.to_loki.receiver]
 }
 
-// ── OPTIONAL: DOCKER SERVICE DISCOVERY ─────────────────
-// Uncomment if you want per-container labels.
-/*
+// ── DOCKER SERVICE DISCOVERY ─────────────────
 discovery.docker "all" {
   host = "unix:///var/run/docker.sock"
   refresh_interval = "5s"
@@ -45,4 +43,3 @@ log.parse.docker "autolabel" {
   forward_to   = [loki.write.to_loki.receiver]
   discovery    = discovery.docker.all.targets
 }
-*/

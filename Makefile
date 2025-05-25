@@ -5,7 +5,7 @@ help: ## Display this help
 
 setup: ## Create necessary configuration files
 	@echo "Creating config directories..."
-	@mkdir -p config/{caddy,prometheus,loki,promtail,grafana/provisioning/{datasources,dashboards}}
+	@mkdir -p config/{caddy,prometheus,loki,alloy,grafana/provisioning/{datasources,dashboards}}
 	@echo "Creating config template files..."
 	@[ ! -f config/grafana/provisioning/datasources/datasources.yml ] && echo "apiVersion: 1\n\ndatasources:\n  - name: Prometheus\n    type: prometheus\n    access: proxy\n    url: http://prometheus:9090\n    isDefault: true\n    editable: false\n\n  - name: Loki\n    type: loki\n    access: proxy\n    url: http://loki:3100\n    editable: false" > config/grafana/provisioning/datasources/datasources.yml || echo "datasources.yml already exists"
 	@[ ! -f .env ] && cp .env.example .env || echo ".env already exists"

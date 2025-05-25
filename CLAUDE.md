@@ -10,7 +10,7 @@ This repository contains a Docker Compose-based monitoring and logging stack for
 - Prometheus (v2.49.1): Metrics collection and storage
 - Grafana (v10.2.3): Visualization and dashboarding
 - Loki (v2.9.3): Log aggregation system
-- Promtail (v2.9.3): Log collection agent
+- Alloy (v1.8.3): Log and metrics collection agent (replacement for Promtail)
 
 ## Common Commands
 
@@ -47,7 +47,7 @@ make help
 - **Caddy**: `/config/caddy/Caddyfile`
 - **Prometheus**: `/config/prometheus/prometheus.yml`
 - **Loki**: `/config/loki/loki-config.yml`
-- **Promtail**: `/config/promtail/promtail-config.yml`
+- **Alloy**: `/config/alloy/config.alloy`
 - **Grafana**: 
   - Datasources: `/config/grafana/provisioning/datasources/datasources.yml`
   - Dashboards: `/config/grafana/provisioning/dashboards/`
@@ -60,7 +60,7 @@ make help
    - Credentials are stored in `.env` file (not committed to git)
 
 2. **Data Flow**:
-   - Promtail collects logs from system and Docker containers
+   - Alloy collects logs from system and Docker containers
    - Logs are sent to Loki for storage and indexing
    - Prometheus collects metrics from various services
    - Grafana visualizes both logs (Loki) and metrics (Prometheus)

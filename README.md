@@ -1,6 +1,6 @@
 # Homelab Monitoring Stack
 
-A Docker Compose based monitoring and logging stack with Prometheus, Grafana, Loki, and Promtail.
+A Docker Compose based monitoring and logging stack with Prometheus, Grafana, Loki, and Alloy.
 
 ## Components
 
@@ -8,7 +8,7 @@ A Docker Compose based monitoring and logging stack with Prometheus, Grafana, Lo
 - **Prometheus**: Metrics collection and storage (v2.49.1)
 - **Grafana**: Visualization and dashboarding (v10.2.3)
 - **Loki**: Log aggregation system (v2.9.3)
-- **Promtail**: Log collection agent (v2.9.3)
+- **Alloy**: Log and metrics collection agent (v1.8.3)
 
 ## Directory Structure
 
@@ -18,7 +18,7 @@ A Docker Compose based monitoring and logging stack with Prometheus, Grafana, Lo
 │   ├── grafana/provisioning/datasources/datasources.yml
 │   ├── loki/loki-config.yml
 │   ├── prometheus/prometheus.yml
-│   └── promtail/promtail-config.yml
+│   └── alloy/config.alloy
 ├── .env (credentials - not in git)
 ├── .env.example (template for credentials)
 ├── docker-compose.yml
