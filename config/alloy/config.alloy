@@ -1,0 +1,48 @@
+// ── GLOBAL ─────────────────────────────────────────────
+locals {
+  log_labels = {
+    instance = "${HOSTNAME}"
+  }
+}
+
+// ── LOKI OUTPUT ────────────────────────────────────────
+loki.write "to_loki" {
+  endpoint       = "http://loki:3100/loki/api/v1/push"
+  external_labels = local.log_labels
+}
+
+// ── SYSTEM LOGS (/var/log/*.log) ───────────────────────
+log.scrape "varlogs" {
+  targets = [
+    {
+      __path__ = "/var/log/*log"
+      job      = "varlogs"
+    },
+  ]
+  forward_to = [loki.write.to_loki.receiver]
+}
+
+// ── CONTAINER LOGS (JSON) ──────────────────────────────
+log.scrape "docker_containers" {
+  targets = [
+    {
+      __path__ = "/var/lib/docker/containers/*/*log"
+      job      = "docker"
+    },
+  ]
+  forward_to = [loki.write.to_loki.receiver]
+}
+
+// ── OPTIONAL: DOCKER SERVICE DISCOVERY ─────────────────
+// Uncomment if you want per-container labels.
+/*
+discovery.docker "all" {
+  host = "unix:///var/run/docker.sock"
+  refresh_interval = "5s"
+}
+
+log.parse.docker "autolabel" {
+  forward_to   = [loki.write.to_loki.receiver]
+  discovery    = discovery.docker.all.targets
+}
+*/
