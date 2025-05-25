@@ -4,6 +4,6 @@
 }
 
 # Only expose Grafana publicly
-grafana.localhost {
+grafana.yuandrk.net {
     reverse_proxy grafana:3000
 }

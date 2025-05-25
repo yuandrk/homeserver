@@ -1,15 +1,16 @@
-version: '3.8'
-
 services:
   caddy:
-    image: caddy:2.7.6
+    image: caddy:2.8-alpine
     container_name: caddy
     restart: unless-stopped
+    environment:
+      - CADDY_INGRESS_NETWORKS=internal
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./config/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /var/run/docker.sock:/var/run/docker.sock
       - caddy_data:/data
       - caddy_config:/config
     networks:
@@ -88,6 +89,7 @@ services:
       - ./config/promtail/promtail-config.yml:/etc/promtail/config.yml:ro
       - /var/log:/var/log:ro
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     command: -config.file=/etc/promtail/config.yml
     depends_on:
       - loki

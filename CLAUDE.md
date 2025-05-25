@@ -48,7 +48,9 @@ make help
 - **Prometheus**: `/config/prometheus/prometheus.yml`
 - **Loki**: `/config/loki/loki-config.yml`
 - **Promtail**: `/config/promtail/promtail-config.yml`
-- **Grafana**: `/config/grafana/provisioning/datasources/datasources.yml`
+- **Grafana**: 
+  - Datasources: `/config/grafana/provisioning/datasources/datasources.yml`
+  - Dashboards: `/config/grafana/provisioning/dashboards/`
 
 ## Architecture Notes
 
