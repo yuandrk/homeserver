@@ -3,7 +3,11 @@
     admin off
 }
 
-# Only expose Grafana publicly
+# Public services
 grafana.yuandrk.net {
     reverse_proxy grafana:3000
+}
+
+actual.yuandrk.net {
+    reverse_proxy actual_server:5006
 }

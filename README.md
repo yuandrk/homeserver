@@ -9,6 +9,7 @@ A Docker Compose based monitoring and logging stack with Prometheus, Grafana, Lo
 - **Grafana**: Visualization and dashboarding (v10.2.3)
 - **Loki**: Log aggregation system (v2.9.3)
 - **Alloy**: Log and metrics collection agent (v1.8.3)
+- **Actual Budget**: Personal finance manager (latest)
 
 ## Directory Structure
 

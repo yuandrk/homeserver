@@ -11,6 +11,7 @@ This repository contains a Docker Compose-based monitoring and logging stack for
 - Grafana (v10.2.3): Visualization and dashboarding
 - Loki (v2.9.3): Log aggregation system
 - Alloy (v1.8.3): Log and metrics collection agent (replacement for Promtail)
+- Actual Budget (latest): Personal finance manager
 
 ## Common Commands
 
@@ -79,5 +80,6 @@ make help
    - Named volumes for persistent data
 
 5. **Access Points**:
-   - Grafana UI: http://grafana.localhost
-   - Default credentials are in .env file (admin/admin by default)
+   - Grafana UI: http://grafana.yuandrk.net
+   - Actual Budget: http://actual.yuandrk.net
+   - Default credentials are in .env file (admin/admin by default for Grafana)

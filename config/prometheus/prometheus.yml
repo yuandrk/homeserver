@@ -15,6 +15,14 @@ scrape_configs:
     static_configs:
       - targets: ['loki:3100']
 
+  - job_name: 'alloy'
+    static_configs:
+      - targets: ['alloy:12345']
+      
+  - job_name: 'actual_server'
+    static_configs:
+      - targets: ['actual_server:5006']
+
   # Add additional targets here as needed
   # Example:
   # - job_name: 'node-exporter'
